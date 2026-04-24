@@ -1,0 +1,7 @@
+stavropollocalguide.duckdns.org {
+  encode gzip
+
+  # Пробрасываем все запросы в контейнер приложения
+  reverse_proxy app:8080
+}
+

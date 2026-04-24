@@ -34,8 +34,8 @@ cp .env.example .env
 
 Отредактируйте `.env` файл:
 
-- `MAX_BOT_TOKEN`: Ваш токен бота из Max (получите в личном кабинете Max)
-- `MAX_WEBHOOK_SECRET`: Секретный ключ для webhook (придумайте сложный)
+- `MAX_BOT_TOKEN`: Ваш токен бота из Max 
+- `MAX_WEBHOOK_SECRET`: Секретный ключ для webhook (придумайте любой)
 - `PUBLIC_BASE_URL`: Публичный URL вашего сервера (например, `https://your-domain.com`)
 - `WEBHOOK_PATH`: Путь для webhook (по умолчанию `/webhook/max`)
 - `DATABASE_URL`: URL базы данных (SQLite по умолчанию: `sqlite+aiosqlite:///./var/app.db` или Postgres: `postgresql+asyncpg://user:pass@host:5432/dbname`)
@@ -101,38 +101,6 @@ docker-compose exec app python -m app.admin.register_webhook
 ```bash
 docker-compose exec app python -m app.admin.upload_images
 ```
-
-### Импорт из CSV
-
-```bash
-docker-compose exec app python -m app.admin.import_csv path/to/file.csv
-```
-
-## Локальный запуск (для разработки)
-
-1. Установите Python 3.11+
-2. Создайте виртуальное окружение:
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate  # Windows
-# или source .venv/bin/activate  # Linux/Mac
-```
-
-3. Установите зависимости:
-
-```bash
-pip install -r requirements.txt
-```
-
-4. Настройте `.env` (см. выше)
-5. Запустите:
-
-```bash
-uvicorn app.main:app --host 0.0.0.0 --port 8080
-```
-
-6. Для webhook: `python -m app.admin.register_webhook`
 
 ## Docker
 
